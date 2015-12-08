@@ -61,3 +61,4 @@ fi
 
 iptables -t nat -A PREROUTING -p tcp -d ${HOSTIP} --dport ${HOSTPORT} -i eth0 -j DNAT --to-destination ${CONIP}:${CONPORT}
 iptables -t nat -A POSTROUTING -s ${CONIP} -o eth0 -j SNAT --to ${HOSTIP}
+iptables -L -vt nat
